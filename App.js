@@ -3,7 +3,7 @@ import { StyleSheet, Button, View, KeyboardAvoidingView, TextInput} from 'react-
 import MapView, { Marker } from 'react-native-maps';
 import Geocoder from 'react-native-geocoding';
 
-Geocoder.init('AIzaSyBunk_zeXXHwIDnFkQj75cxFP07Sn8zx4E');
+Geocoder.init('MyApiKey');
 
 export default function App() {
 
