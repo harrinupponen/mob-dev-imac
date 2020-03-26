@@ -3,7 +3,7 @@ import { StyleSheet, Button, View, KeyboardAvoidingView, TextInput} from 'react-
 import MapView, { Marker } from 'react-native-maps';
 import Geocoder from 'react-native-geocoding';
 
-Geocoder.init('AIzaSyBunk_zeXXHwIDnFkQj75cxFP07Sn8zx4E');
+Geocoder.init('MyGoogleApiKey');
 
 export default function App() {
 
@@ -12,7 +12,13 @@ export default function App() {
   const [address, setAddress] = useState('');
 
   const findLocation = () => {
-      
+    Geocoder.from(address)
+            .then(json => {
+              let location = json.results[0].geometry.location;
+              setLat(location.lat);
+              setLng(location.lng);
+            })
+            .catch(error => console.warn(error));
         }
             
 
